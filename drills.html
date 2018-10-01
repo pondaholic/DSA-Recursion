@@ -1,0 +1,80 @@
+<script>
+	//count
+	let count = num => {
+		if (num === 0) {
+			return 0;
+		}
+		console.log("Another sheep jump over the fence", num);
+		count(num - 1);
+	}
+	// console.log(count(5))
+
+	//reverse
+	let reverse = (word) => {
+		if (word === '') {
+			return '';
+		}
+		return reverse(word.slice(1)) + word.charAt(0);
+	}
+	// console.log(reverse('reverse'))
+
+	//nth triangle
+	function triangle(num) {
+		if (num === 0) {
+			return 0;
+		}
+		return num + triangle(num - 1);
+	}
+	// console.log(triangle(5));
+	// console.log(triangle(4));
+	// console.log(triangle(3));
+	// console.log(triangle(2));
+	// console.log(triangle(1));
+
+	//String Splitter
+	function split(string, separator) {
+		if (string.indexOf(separator) === -1) {
+			return [string.slice(0)];
+		}
+		let n = string.indexOf(separator);
+		return [string.slice(0, n), ...split(string.slice(n + 1), separator)]
+	}
+	// let phrase = "The.cow.jumped.over.the.moon."
+	// let phrase2 = "The new moon something something"
+	// let phrase3 = "When-you-wish-upon-a-star"
+	// let phrase4 = "I/did/something/right"
+	// console.log(split(phrase3, '-'))
+	// console.log(split(phrase2, ' '))
+	// console.log(split(phrase, '.'))
+	// console.log(split(phrase4, '/'))
+
+	//factorial
+	let factorial = (number) => {
+		if (number === 0) {
+			return 1;
+		}
+		return number * factorial(number - 1);
+	}
+	// console.log(factorial(5));
+
+	//fibonacci
+	function fibonacci(num) {
+		if (num < 2) {
+			return num;
+		}
+		return fibonacci(num - 1) + fibonacci(num - 2)
+	}
+	// console.log(fibonacci(7));
+
+	//anagrams
+	let anagrams = (word) => {
+		if (word === '') {
+			return '';
+		}
+		newWord = word.slice(1) + word.charAt(0);
+		console.log(newWord)
+		return [newWord, ...anagrams(newWord.slice(-1))];
+	}
+
+	console.log(anagrams('eats'))
+</script>
