@@ -68,13 +68,35 @@
 
 	//anagrams
 	let anagrams = (word) => {
-		if (word === '') {
-			return '';
+		// Base condition
+		let newWord;
+		if (newWord === 'eats') {
+			return;
 		}
-		newWord = word.slice(1) + word.charAt(0);
+		for (let i = 0; i < word.length; i++) {
+			//setting the prefix-ish:
+			let prefix = word[i]
+			let rearranged = word.slice(0, i) + word.slice(i + 1, word.length)
+			// console.log(rearranged)
+			newWord = prefix + rearranged
+		}
 		console.log(newWord)
-		return [newWord, ...anagrams(newWord.slice(-1))];
+		return [newWord, ...anagrams(newWord)]
+
+		// for every letter, take from the begining until i and add letter after i until the end
+
+		// newWord = word.slice(1) + word.charAt(0)
+		// console.log([word.slice(1) + word.charAt(0), ...anagrams(word.slice(1) + word.charAt(0))])
 	}
 
 	console.log(anagrams('eats'))
+
+	/* 
+	eats => 0123
+	east => 0132
+	etsa => 0231
+	etas => 0213
+	esta => 0321
+	esat => 0312
+	*/
 </script>
